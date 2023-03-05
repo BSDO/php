@@ -1,15 +1,12 @@
 <?php
 
 
-class Huamno {
+// class Huamno {
 
-}
+// }
 
-$marcos = new Huamno;
+// $marcos = new Huamno;
 
-if($marcos instanceof Huamno){
-    echo "MArocs pe u";
-}
+// if($marcos instanceof Huamno){
+//     echo "MArocs pe u";
 
-
-?>

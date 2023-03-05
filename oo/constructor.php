@@ -7,7 +7,7 @@ class Humano{
     public $maos;
     public $nome;
 
-    function __construct($pes,$maos,$nome){
+    function __construct($pes,$maos,$nome){ // funçao que ja passa 
         $this->pes = $pes;
         $this->maos = $maos;
         $this->nome = $nome;

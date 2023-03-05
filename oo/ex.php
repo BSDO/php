@@ -72,38 +72,59 @@ echo $breno->nome;
 
 // exercicio de heranças
 
-echo "<h1>Exercio de Heranças: </h1><hr>";
+// echo "<h1>Exercio de Heranças: </h1><hr>";
 
-class Humano { // classe com 2 propriedade e um metodo
+// class Humano { // classe com 2 propriedade e um metodo
 
-    public $maos = 2;
-    public $pes = 2;
+//     public $maos = 2;
+//     public $pes = 2;
 
-    public function fala(){
-        echo "Olaaaaaaaaaaaaaaaaaa<br>";
+//     public function fala(){
+//         echo "Olaaaaaaaaaaaaaaaaaa<br>";
+//     }
+// }
+
+// class Professor extends Humano{
+//     public $disciplina = "Matemática";
+
+//     public function lecionando(){
+//         echo "O professor esta dando aula de $this->disciplina.<br>";
+//     }
+// }
+
+// $breno = new Humano();
+// echo "Mãos: $breno->maos<br> pes: $breno->pes<br>";
+// $breno->fala();
+// echo "<br><hr>";
+
+// $jose = new Professor();
+// $jose->lecionando();
+// echo "$jose->pes";
+
+
+
+// exercicio sobre constructor 
+
+class Cachorro {
+
+    public $nome;
+    public $raca;
+     
+    public $patas;
+
+    function __construct($nome,$raca,$patas){
+        $this->nome = $nome;
+        $this->raca = $raca;
+        $this->patas = $patas;
+    }
+
+    public function mostrar(){
+        echo "O nome do animal é :$this->nome <br> Sua raça: $this->raca <br>  patas: $this->patas" ;
     }
 }
 
-class Professor extends Humano{
-    public $disciplina = "Matemática";
-
-    public function lecionando(){
-        echo "O professor esta dando aula de $this->disciplina.<br>";
-    }
-}
-
-$breno = new Humano();
-echo "Mãos: $breno->maos<br> pes: $breno->pes<br>";
-$breno->fala();
-echo "<br><hr>";
-
-$jose = new Professor();
-$jose->lecionando();
-echo "$jose->pes";
-
-
-
-
+$animal = new Cachorro("Perebas","Pitbull",3);
+$animal->mostrar();
 
 
 
