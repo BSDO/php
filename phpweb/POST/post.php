@@ -7,9 +7,15 @@
     <title>Post</title>
 </head>
 <body>
-    <form action="" method="">
+    <form action="postrecebe.php" method="POST">
         <div>
-            <input type="" name="">
+            <input type="text" name="email">
+        </div>
+        <div>
+            <input type="passoword" name="senha">
+        </div>
+        <div>
+            <input type="submit" value="Enviar">
         </div>
 
     </form>
