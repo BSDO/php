@@ -5,7 +5,7 @@ $validacoes = [];
 
 if(count($_POST) > 0){
 
-    if(isset($_POST['name']) ){
+    if(isset($_POST['nome']) ){
         $validacoes[] = "Por favor preencha!";
 
     }   
@@ -39,7 +39,7 @@ if(count($_POST) > 0){
     
     <form action="validaform.php" method="POST">
         <div>
-            <input type="text" name="name">
+            <input type="text" name="nome">
         </div>
         <div>
             <input type="passoword" name="senha">

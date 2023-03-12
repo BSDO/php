@@ -11,7 +11,7 @@
 
     // query com os parametros de tabela e cada dados passado
     $query = "INSERT INTO $table (nome, idade,datanascimento,email) VALUES ('$nome','$idade','$datanascimento','$email')";
-    
+    //echo "$query";
     // link que enviar para o banco a partir de uma query de insert
     $link->query($query);
    
