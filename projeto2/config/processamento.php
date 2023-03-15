@@ -1,10 +1,9 @@
 <?php
-    session_start();
-    include('config/conexao.php');
-    include('config/url.php');
+ 
+    include('conexao.php');
+    include('url.php');
+
 
 
     
-
-
 ?>

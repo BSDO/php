@@ -1,24 +1,24 @@
-<?php
+<!-- <?php
 
-$validacoes = [];
-
-
-if(count($_POST) > 0){
-
-    if(isset($_POST['nome']) ){
-        $validacoes[] = "Por favor preencha!";
-
-    }   
+// $validacoes = [];
 
 
-}
+// if(count($_POST) > 0){
+
+//     if(isset($_POST["nome"]) ){
+//         $validacoes[] = "Por favor preencha!";
+
+//     }   
+
+
+// }
 
 
 
 
-?>
+?> -->
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -27,11 +27,11 @@ if(count($_POST) > 0){
     <title>Forms</title>
 </head>
 <body>
-    <?php if(count($validacoes)): ?>
+ //if(count($validacoes)):
         <ul>
-            <?php foreach($validacoes as $validar):?>
-             <li> <?= $validar ?> </li>
-            <?php endforeach; ?>
+             //foreach($validacoes as $validar):?>
+             <li> //$validar ?> </li>
+             //endforeach; ?>
     
         </ul>
        
@@ -51,4 +51,4 @@ if(count($_POST) > 0){
     </form>
     
 </body>
-</html>
+</html> -->
