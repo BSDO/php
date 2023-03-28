@@ -1,25 +1,19 @@
 <?php
 
-//conexao com o banco de dados  
-// uma forma de conecta ao banco
+  $host = "localhost";
+  $dbname = "agenda";
+  $user = "root";
+  $pass = "";
 
-$host = "localhost";
-$root = "root";
-$pass = "";
-$db = "agenda";
+  try {
 
+    $link = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
 
-$link = new mysqli($host,$root,$pass,$db);
+    // Ativar o modo de erros
+    $link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-if($link->connect_error){
-    echo "Erro na conexão com o ".$link->connect_error  ."<br>"; 
-}
-else
-{
-    //echo "conectado com sucesso!";
-}
-
-
-
-
-?>
+  } catch(PDOException $e) {
+    // erro na conexão
+    $error = $e->getMessage();
+    echo "Erro: $error";
+  }
