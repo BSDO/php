@@ -3,7 +3,7 @@
 ?>
     <div class="container" id="view-contatos">
         <a href="<?=$BASE_URL?>index.php" id="back-index">Voltar</a>
-        <h1 id="main-title"> Criar contato</h1>
+        <h1 id="main-title"> Editar dados</h1>
         <form action="<?=$BASE_URL?>config/processamento.php" method="POST">
             <div class="form-group">
                 <label class="lbl" for="nome">Nome do contato: </label>

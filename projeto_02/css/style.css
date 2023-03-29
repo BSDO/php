@@ -16,12 +16,15 @@
 }
 
 /* HOME  */
-
+#index-container{
+    padding: 40px;
+}
 
 #contatos-table {
     max-width: 800px;
     margin: 0 auto;
     padding-top: 30px;
+    border: 1px solid black;
 }
 
 #col-id{
@@ -43,9 +46,8 @@
     margin-right: 4px;
 }
 
-.check-icon{
-    color: green;
-
+.eye-icon{
+    color: rgb(35, 220, 35);
 }
 
 .edit-icon{
@@ -66,9 +68,9 @@
     text-align: center;
 }
 
-#msg {
+#msg , .msg {
     color:#155724;
-    background-color: #fff;
+    background-color: #3cda3c;
     border: 1px solid #000000;
     padding: 10px;
     text-align:center;
@@ -117,3 +119,40 @@
     background-color: #2222e1;
     
 }
+
+
+/* Create contato */
+
+
+.container{
+    text-align: center;
+
+}
+
+.form-group{
+    padding: 10px;
+}
+
+.form-group{
+    text-align: left;
+}
+
+.form-control{
+    border:3px solid black;
+}
+
+#btn{
+   margin-top: 10px;
+}
+
+
+
+
+/* footer */
+
+#footer{
+    width: 100%;
+    padding-top:20px;
+    background-color: #3c57e1;
+}
+
