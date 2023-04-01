@@ -39,6 +39,7 @@
 .actions{
     text-align: right;
     width:150px;
+
 }
 
 .actions i{
@@ -145,6 +146,10 @@
    margin-top: 10px;
 }
 
+
+#form-delete{
+    display: inline-block;
+}
 
 
 

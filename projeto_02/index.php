@@ -8,7 +8,7 @@
            <p id="msg"><?= $msg ?></p>
         <?php endif ?>
         <h1 id="main-title">AGENDA DE CONTATOS</h1>
-            <?php if(count($contact) > 0):
+            <?php if(count($contatos) > 0):
                 
             ?>
                 <table class="table table-responsive" id="contatos-table">
@@ -23,24 +23,28 @@
                     </thead>
                     <tbody>
                         <?php
-                            foreach($contact as $contacts)
+                            foreach($contatos as $contato)
                             {  
                         ?>
                             <tr>
-                                <td scope="row" id="col-id"><?=$contacts["idcontato"];?></td >
-                                <td scope="row"><?=$contacts["nome"];?></td >
-                                <td scope="row"><?=$contacts["telefone"];?></td >
-                                <td scope="row" ><?=$contacts["observacao"];?></td>
+                                <td scope="row" id="col-id"><?=$contato["idcontato"];?></td >
+                                <td scope="row"><?=$contato["nome"];?></td >
+                                <td scope="row"><?=$contato["telefone"];?></td >
+                                <td scope="row" ><?=$contato["observacao"];?></td>
                                 <td class="actions" >
-                                    <a href="<?=$BASE_URL?>dados.contato.php?id=<?=$contact["id"];?>"><i class="fa fa-eye eye-icon"></i></a>
-                                    <a href="<?=$BASE_URL?>editardados.php?id=<?=$contact["id"];?>"><i class="fa fa-edit edit-icon"></i></a>
-                                    <button type="submit" class="butao"><i class="fas fa-times delete-icon"></i></button>
+                                    <a href="<?= $BASE_URL ?>show.php?idcontato=<?= $contato["idcontato"] ?>"><i class="fas fa-eye check-icon"></i></a>
+                                    <a href="<?= $BASE_URL ?>editardados.php?idcontato=<?= $contato["idcontato"] ?>"><i class="far fa-edit edit-icon"></i></a>
+                                    <form class="form-delete" action="config/processamento.php" method="post">
+                                        <input type="hidden" name="type" value="delete">
+                                        <input type="hidden" name="idcontato" value="<?=$contato["idcontato"]?>">
+                                        <button type="submit" class="butao"><i class="fas fa-times delete-icon"></i></button>
+                                    </form>
                                 </td>
                             </tr>
 
-            <?php
-               }
-            ?>
+                        <?php
+                        }
+                        ?>
                     </tbody>
                 </table>
                     
