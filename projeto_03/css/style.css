@@ -1,0 +1,179 @@
+/* NAVBAR */
+
+.navbar-brand{
+    position: relative;
+}
+
+#logo{
+    width: 50px;
+}
+
+#moviestar-title{
+    color:#ed1414;
+    position: absolute;
+    bottom: -2px;
+    font-size: 30px;
+    left: 55px;
+    font-weight: bold;
+}
+
+#main-navbar{
+    background-color: #121212;
+}
+
+#search-form{
+    margin: 0 auto;
+    border-radius: 5px;
+    width: 50%;
+    margin-left: 180px;
+    display: flex;
+    background-color: #f6f4f4;
+}
+
+#search-form .form-control{
+    border: none;
+    width:90%;
+    box-shadow: none;
+}
+
+#navbar{
+    min-width: 30%;
+}
+
+.navbar-nav{
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.navbar-nav .nav-item .nav-link{
+    transition: .5s;
+    color: #fff;
+}
+
+.navbar-nav .nav-item .nav-link:hover{
+ 
+    color: rgb(242, 199, 5);
+}
+
+.msg-container{
+    background-color: #121212;
+    padding: 15px;
+   
+}
+
+.msg{
+    max-width: 300px;
+    color: white;
+    font-size: 20px;
+    margin: 0 auto;
+    text-align: center;
+    border:2px solid yellow;
+    padding: 20px;
+}
+
+.msg-error{
+    max-width: 300px;
+    color:#cee5cf;
+    background-color: #f80b0b;
+    border-color: #f6f4f4;
+    padding: 20px;
+    margin: 0 auto;
+    text-align: center
+}
+
+
+.msg-sucess{
+    max-width: 300px;
+    color:#cee5cf;
+    background-color: #30e608;
+    border-color: #f6f4f4;
+    padding: 20px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* HOME */
+
+#main-container{
+    background-color: #121212;
+    color:#fff;
+    min-height: 65vh;
+    padding: 40px;
+}
+
+
+/* LOGIN / REGISTRAT*/
+
+#auth-row{
+    justify-content: center;
+    
+}
+
+
+#login-container h2,
+#criar-container h2{
+    text-align:center;
+    text-transform: uppercase;
+    margin: 0 auto;
+    width:240px;
+    border-bottom: 2px solid #f5c518;
+}
+
+.form{
+    max-width: 400px;
+    margin: 30px auto;
+   
+}
+
+
+
+
+/* footer */
+
+#footer{
+    background-color:  #121212;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+#social-container ul,
+#footer-links-container ul{
+    list-style: none;
+    padding: 0;
+}
+
+#social-container li,
+#footer-links-container  li{
+    display: inline-block;
+    margin: 0 10px;
+}
+#social-container li{
+    border-radius: 100%;
+    transition: .5s;
+    width: 40px;
+    height: 40px;
+    line-height: 3;
+}
+
+#social-container li{
+    border-radius: 50px;
+    transition: .5s;
+    width: 40px;
+    height: 40px;
+ 
+}
+#social-container li:hover{
+    background-color: #333;
+}
+
+#social-container li i {
+  font-size: 25px;
+}
+
+#social-container a,
+#footer-links-container a{
+   color:#fff;
+   text-decoration: none;
+}
