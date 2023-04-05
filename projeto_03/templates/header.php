@@ -1,8 +1,15 @@
 <?php
-    include("globals.php");
-    include("conexao.php");
+    require_once("globals.php");
+    require_once("conexao.php");
+    require_once("models/message.php");
     
-    $flassmsg = [];
+    $message = new Message($BASE_URL);
+
+    $flassmsg = $message->getMessage();
+
+    if(!empty($flassmsg["msg"])){
+        $message->clearMessage();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -44,17 +51,12 @@
             </div>
         </nav>
     </header>
-    <?php 
-        if(!empty($flassmsg["msg"]))
-        {
-    ?>  
-        <div class="msg-cont ainer">
-            <p class="msg <?=$flassmsg["type"]?> msg <?=$flassmsg["msg"]?>"></p>
+    <?php if(!empty($flassmsg["msg"])): ?>  
+        <div class="msg-container">
+            <p class="msg <?= $flassmsg["type"]; ?>"><?= $flassmsg["msg"]; ?></p>
         </div>
 
-    <?php 
-        }
-    ?>
+    <?php endif;?>
 
 
 

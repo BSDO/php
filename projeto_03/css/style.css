@@ -62,7 +62,7 @@
 }
 
 .msg{
-    max-width: 300px;
+    max-width: 400px;
     color: white;
     font-size: 20px;
     margin: 0 auto;
@@ -136,6 +136,7 @@
     text-align: center;
     margin: 0;
     padding: 20px;
+   
 }
 
 #social-container ul,
