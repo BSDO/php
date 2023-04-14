@@ -2,7 +2,8 @@
     require_once("globals.php");
     require_once("conexao.php");
     require_once("models/message.php");
-    
+    require_once("dao/UserDao.php");
+
     $message = new Message($BASE_URL);
 
     $flassmsg = $message->getMessage();
@@ -10,6 +11,14 @@
     if(!empty($flassmsg["msg"])){
         $message->clearMessage();
     }
+
+    $userdao = new UserDao($link,$BASE_URL);
+
+    $userdados = $userdao->verifyToken(false);
+
+    // print_r($userdados);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -44,9 +53,26 @@
             </form>
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="navbar-nav">
+                   <?php if($userdados): ?>                    
                     <li class="nav-item">
-                        <a href="<?=$BASE_URL?>auth.php" class="nav-link">Entrar / Cadastrar</a>
+                        <a href="<?=$BASE_URL?>newmovie.php" class="nav-link">
+                            <i class="far fa-plus-square"></i>Incluir filme
+                        </a>
+                    </li> 
+                    <li class="nav-item">
+                        <a href="<?=$BASE_URL?>dashboard.php" class="nav-link">Meus filmes</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="<?=$BASE_URL?>editorprofile.php" class="nav-link"><?= $userdados->nome ?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?=$BASE_URL?>logout.php" class="nav-link">Sair</a>
+                    </li>
+                    <?php else: ?>
+                        <li class="nav-item">
+                            <a href="<?=$BASE_URL?>auth.php" class="nav-link">Entrar / Cadastrar</a>
+                        </li> 
+                    <?php endif ?>  
                 </ul>
             </div>
         </nav>
