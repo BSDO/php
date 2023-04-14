@@ -10,6 +10,10 @@
         public $token;
         public $bio;
 
+        public function nomeCompleto($users){ // funçao que mostra o nome e sobrenome
+            return $users->nome . " " . $users->sobrenome;
+        }
+
         public function gerarToken(){
             return bin2hex(random_bytes(50));
         }
@@ -24,7 +28,7 @@
     interface UserDaoInterface{
         public function buildUser($data);
         public function create(Users $user,$authUser = false);
-        public function update(User $user);
+        public function update(Users $user,$redirecionar = true);
         public function findByToken($token);
         public function verifyToken($protecao = false);
         public function destroyToken();

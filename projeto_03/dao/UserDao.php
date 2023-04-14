@@ -60,7 +60,39 @@
              
         }
 
-        public function update(User $user){
+
+        //atualiza dados do usuarios
+        public function update(Users $user,$redirecionar = true) {
+
+            $stmt = $this->link->prepare("UPDATE users SET 
+              nome = :nome,
+              sobrenome = :sobrenome,
+              email = :email,
+              imagem = :imagem,
+              bio = :bio,
+              token = :token
+              WHERE iduser = :iduser
+            ");
+      
+            $stmt->bindParam(":nome", $user->nome);
+            $stmt->bindParam(":sobrenome", $user->sobrenome);
+            $stmt->bindParam(":email", $user->email);
+            $stmt->bindParam(":imagem", $user->imagem);
+            $stmt->bindParam(":bio", $user->bio);
+            $stmt->bindParam(":token", $user->token);
+            $stmt->bindParam(":iduser", $user->iduser);
+      
+            $stmt->execute();
+
+            if($redirecionar){
+
+                //perfil do usuario
+                $this->message->setMessage("Dados Atualizados com Sucesso","sucess","editorprofile.php");
+
+            }
+
+
+
 
         }
         public function findByToken($token){
@@ -125,15 +157,47 @@
             if($redirecionar){
 
                 //perfil do usuario
-                $this->message->setMessage("Seja-bem vindo","sucess","editorprofile.php");
-
+                $this->message->setMessage("Feito cadastro !","sucess","index.php");
             }
 
 
         }
         public function autenticacaoUser($email,$senha){
 
+            $user = $this->findByemail($email);
+
+            if($user){
+
+                // Verifica senha
+                if(password_verify($senha,$user->senha)){
+
+                    //gerar token
+                    $token = $user->gerarToken();
+
+                    $this->setTokenSession($token,false);
+
+                    $user->token = $token;
+
+                    // atualizar token
+                    $this->update($user,false);
+
+                    return true;
+
+                }else{
+
+                    return false;
+                }
+
+                
+            }
+            else{
+                return false;
+            }
+
         }
+
+
+
         // verifica se tem um email
         public function findByemail($email){
 

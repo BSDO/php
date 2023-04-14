@@ -55,15 +55,22 @@
         }
     }
     else if($tipo == "login"){
+
         $email = filter_input(INPUT_POST, "email");
         $senha = filter_input(INPUT_POST, "senha");
 
 
-        // if(){
+        if($userDao->autenticacaoUser($email,$senha)){
 
-        // }else{
-            
-        // }
+            $message->setMessage("Seja bem-vindo","sucess","editorprofile.php");
+
+        }else{
+            $message->setMessage("Usuário e senha incorretos!","error","back");
+        }
+
+    }else{
+        $message->setMessage("Informações incorretos!","error","index.php");
+    
     }
 
 ?>
