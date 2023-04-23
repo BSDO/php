@@ -223,7 +223,7 @@
         public function findById($iduser){
 
         }
-        public function trocarsenha(User $user){
+        public function trocarsenha(Users $user){
 
         }
 

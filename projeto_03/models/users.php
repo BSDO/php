@@ -36,7 +36,7 @@
         public function autenticacaoUser($email,$senha);
         public function findByemail($email);
         public function findById($iduser);
-        public function trocarsenha(User $user);
+        public function trocarsenha(Users $user);
 
     }
 
