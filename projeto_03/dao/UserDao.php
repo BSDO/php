@@ -83,17 +83,13 @@
             $stmt->bindParam(":iduser", $user->iduser);
       
             $stmt->execute();
-
+          
             if($redirecionar){
 
                 //perfil do usuario
                 $this->message->setMessage("Dados Atualizados com Sucesso","sucess","editorprofile.php");
 
-            }
-
-
-
-
+            }          
         }
         public function findByToken($token){
             if($token !=  ""){
@@ -224,7 +220,17 @@
 
         }
         public function trocarsenha(Users $user){
+            // especifa a senha sendo alterada e o usuario
+            $stmt = $this->link->prepare("UPDATE users SET 
+                senha = :senha 
+                WHERE iduser = :iduser
+            ");
+        
+            $stmt->bindParam(":senha",$user->senha);
+            $stmt->bindParam(":iduser",$user->iduser);
 
+            $stmt->execute();
+            $this->message->setMessage("senha alterada","sucess","editorprofile.php");
         }
 
     }

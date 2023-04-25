@@ -29,7 +29,7 @@
                     $user = new Users();
 
                     $userToken = $user->gerarToken();
-                    $senhacript = $user->password_hash($senha);
+                    $senhacript = $user->gerarSenha($senha);
 
                     $user->nome = $nome;
                     $user->sobrenome = $sobrenome;

@@ -18,12 +18,12 @@
             return bin2hex(random_bytes(50));
         }
 
-        public function password_hash($senha){
+        public function gerarSenha($senha){
             return password_hash($senha , PASSWORD_DEFAULT);
         }
 
-        public function imageGenerateName(){
-            return bin2hex(random_bytes(60));
+        public function imageGenerateName() {
+            return bin2hex(random_bytes(60)) . ".jpg";
         }
 
     }

@@ -9,6 +9,7 @@
     $message = new Message($BASE_URL);
 
     $userDao= new UserDao($link, $BASE_URL);
+    $user = new Users();
 
     // resgatar o tipo de formulario
     $type = filter_input(INPUT_POST,"type");
@@ -34,37 +35,48 @@
 
         // Verifica se a imagem subiu e o nome temporario dela
         if(isset($_FILES["imagem"]) && !empty($_FILES["imagem"]["tmp_name"])){
-           
+            
            $imagem = $_FILES["imagem"];
 
            $tipos = ["imagem/jpeg","imagem/jpg","imagem/png"];
            $jpgtipo = ["imagem/jpeg","imagem/jpg"];
-
+ 
 
            //Verifica se o array de imagem nao esta vazio com os tipos definidos
-           if(in_array($imagem["type"],$tipos))
-           {
-                if(in_array($imagem,$jpgtipo)){
-                    
-                    $imagefile = imagecreatefromjpeg($imagem["tpm_name"]);
-
-                }else{
-                     $imagefile = imagecreatefrompng($imagem["tpm_name"]);
-
-                }
-
-                $imagename = $user->imageGenerateName();
-
-                imagejpeg($imagefile, "./img/users/" . $imagename,100);
-
-                $userdata->imagem = $imagename;
-
-
-
-           }else{
-                //Apresenta um erro caso nenhum tipo de arquivo que foi definido 
-                $message->setMessage("Tipo invalido","error","back"); 
-           }
+           if(isset($_FILES["imagem"]) && !empty($_FILES["imagem"]["tmp_name"])) {
+      
+            $imagem = $_FILES["imagem"];
+            $imageTypes = ["imagem/jpeg", "imagem/jpg", "imagem/png"];
+            $jpgArray = ["imagem/jpeg", "imagem/jpg"];
+      
+            // Checagem de tipo de imagem
+            if(in_array($imagem["type"], $imageTypes)) {
+      
+              // Checar se jpg
+              if(in_array($imagem, $jpgArray)) {
+      
+                $imageFile = imagecreatefromjpeg($imagem["tmp_name"]);
+      
+              // Imagem é png
+              } else {
+      
+                $imageFile = imagecreatefrompng($imagem["tmp_name"]);
+      
+              }
+      
+              $imageName = $user->imageGenerateName();
+      
+              imagejpeg($imageFile, "./img/users/" . $imageName, 100);
+      
+              $userData->imagem = $imageName;
+      
+            } else {
+      
+              $message->setMessage("Tipo inválido de imagem, insira png ou jpg!", "error", "back");
+      
+            }
+      
+          }
 
 
 
@@ -81,7 +93,28 @@
 
     }else if($type === "alterarsenha"){
 
+        $userdata = $userDao->verifyToken();
+
+        $iduser = $userdata->iduser;
+        
+        $senha = $_POST["senha"];
+        $confirmasenha = $_POST["confirmasenha"];
+
+        if($senha == $confirmasenha){
+
+            $user =  new Users();
+
+            $finalsenha = $user->gerarSenha($senha);
             
+            $user->senha = $finalsenha;
+            $user->iduser = $iduser;
+
+            $userDao->trocarsenha($user);
+
+
+        }else{
+            $message->setMessage("Senha diferentes!","error","back"); 
+        }
 
     }else{
         $message->setMessage("Email ja cadastrado!","error","back"); 

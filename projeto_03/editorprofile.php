@@ -49,7 +49,7 @@
 
 						<div class="form-group">
 							<label for="imagem">Foto</label>
-							<input type="file" name="imagem" class="form-control-file">
+							<input type="file" id="imagem" name="imagem" class="form-control-file">
 						</div><br>
 						<div class="form-group">
 							<label for="bio">Sobre você:</label></br>
@@ -64,7 +64,8 @@
 					<h2>Alterar senha:</h2>
 					<p class="page-description">Digite a nova senha: </p>
 					<form action="<?= $BASE_URL ?>user_process.php" method="POST">
-						<input type="hidden" name="type" value="alterarsenha">						
+						<input type="hidden" name="type" value="alterarsenha">
+						
 						<div class="form-group">
 							<label for="senha">Senha:</label>
 							<input type="password" class="form-control" id="senha" name="senha" placeholder="Digite sua senha">
