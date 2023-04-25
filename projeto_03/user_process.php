@@ -19,6 +19,8 @@
         // resgatar dados do usuario
         $userdata = $userDao->verifyToken();
 
+        $user = new Users();
+
         $nome = $_POST["nome"];
         $sobrenome = $_POST["sobrenome"];
         $email = $_POST["email"];
@@ -36,10 +38,27 @@
            $imagem = $_FILES["imagem"];
 
            $tipos = ["imagem/jpeg","imagem/jpg","imagem/png"];
+           $jpgtipo = ["imagem/jpeg","imagem/jpg"];
 
 
            //Verifica se o array de imagem nao esta vazio com os tipos definidos
-           if(in_array($imagem["type"],$tipos)){
+           if(in_array($imagem["type"],$tipos))
+           {
+                if(in_array($imagem,$jpgtipo)){
+                    
+                    $imagefile = imagecreatefromjpeg($imagem["tpm_name"]);
+
+                }else{
+                     $imagefile = imagecreatefrompng($imagem["tpm_name"]);
+
+                }
+
+                $imagename = $user->imageGenerateName();
+
+                imagejpeg($imagefile, "./img/users/" . $imagename,100);
+
+                $userdata->imagem = $imagename;
+
 
 
            }else{

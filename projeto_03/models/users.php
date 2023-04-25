@@ -22,6 +22,9 @@
             return password_hash($senha , PASSWORD_DEFAULT);
         }
 
+        public function imageGenerateName(){
+            return bin2hex(random_bytes(60));
+        }
 
     }
 
