@@ -20,6 +20,7 @@
         }
 
         public function buildUser($data){
+            
             $usermodels = new Users();
 
             $usermodels->iduser = $data["iduser"];

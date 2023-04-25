@@ -145,6 +145,26 @@
 
 
 
+/* Ediçao de filmes */
+
+.new-movie-container > form > div.form-group{
+    margin-top: 20px;
+}
+
+.new-movie-container > form > div.form-group > label{
+    padding: 10px 0;
+}
+
+
+.new-movie-container > form > .btn
+{
+    margin-top: 20px;
+
+}
+
+
+
+
 
 
 /* footer */
